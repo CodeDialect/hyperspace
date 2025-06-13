@@ -12,7 +12,7 @@ sudo apt update && sudo apt install git -y
 ```
 ### Quick Start: Run the Script
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/CodeDialect/Hyperspace-Node/main/hyperspace_setup.sh)
+bash <(curl -sL https://raw.githubusercontent.com/CodeDialect/hyperspace/main/hyperspace_setup.sh)
 ```
 
 ### What the script does:
