@@ -8,7 +8,7 @@ This guide helps you install and run a Hyperspace Node in one click using a simp
 
 ### Install Dependencies 
 ```bash
-sudo apt update && sudo apt install git -y
+sudo apt update && sudo apt install git curl -y
 ```
 ### Quick Start: Run the Script
 ```bash
