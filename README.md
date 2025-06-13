@@ -69,9 +69,3 @@ tmux attach -t hyperspace
 - The more uptime and performance, the higher the tier and multiplier.
 
 ---
-
-## ðŸ¤ Credits
-
-Official Docs: [hyperspaceai/aios-cli](https://github.com/hyperspaceai/aios-cli)
-
-Community Guide by [YourName]
