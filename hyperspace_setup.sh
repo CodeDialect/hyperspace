@@ -25,23 +25,23 @@ if ! command -v aios-cli &> /dev/null; then
   source ~/.bashrc
 fi
 
-# === Start tmux session ===
+# === Start node in tmux ===
 SESSION="hyperspace"
 if tmux has-session -t "$SESSION" 2>/dev/null; then
-  echo -e "${YELLOW}Session '$SESSION' already exists. Attaching...${RESET}"
+  echo -e "${YELLOW}Session '$SESSION' already exists. Skipping node start.${RESET}"
 else
-  echo -e "${CYAN}Creating tmux session: $SESSION${RESET}"
-  tmux new-session -d -s "$SESSION"
-
-  # Commands to run inside tmux session
-  tmux send-keys -t "$SESSION" "aios-cli start" C-m
-  sleep 5
-  tmux send-keys -t "$SESSION" "aios-cli models add hf:TheBloke/phi-2-GGUF:phi-2.Q4_K_M.gguf" C-m
-  sleep 5
-  tmux send-keys -t "$SESSION" "aios-cli hive import-keys ./my.pem" C-m
-  tmux send-keys -t "$SESSION" "aios-cli hive login" C-m
-  tmux send-keys -t "$SESSION" "aios-cli hive connect" C-m
-  tmux send-keys -t "$SESSION" "aios-cli hive select-tier 5" C-m
+  echo -e "${CYAN}Starting aios-cli in tmux session '$SESSION'...${RESET}"
+  tmux new-session -d -s "$SESSION" "aios-cli start"
 fi
 
-echo -e "${GREEN}Node is running in tmux session '$SESSION'. To attach: ${CYAN}tmux attach -t hyperspace${RESET}"
+# === Continue setup on main shell ===
+echo -e "${CYAN}Running initial setup commands...${RESET}"
+sleep 5
+aios-cli models add hf:TheBloke/phi-2-GGUF:phi-2.Q4_K_M.gguf
+aios-cli hive import-keys ./my.pem
+aios-cli hive login
+aios-cli hive connect
+aios-cli hive select-tier 5
+
+echo -e "${GREEN}Setup complete! Node is running in tmux session '$SESSION'.${RESET}"
+echo -e "${CYAN}To view: tmux attach -t hyperspace${RESET}"
