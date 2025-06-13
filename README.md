@@ -44,7 +44,7 @@ tmux attach -t hyperspace
 | `tmux attach -t hyperspace` | Reattach to your running node |
 | `tmux ls` | List all tmux sessions |
 | `tmux kill-session -t hyperspace` | Stop the session completely |
-| `CTRL + A then D` | Detach from the session |
+| `CTRL + B then D` | Detach from the session |
 
 ---
 
