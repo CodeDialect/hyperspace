@@ -21,7 +21,8 @@ echo -e "${GREEN}Private key saved to my.pem${RESET}"
 # === Install CLI if not installed ===
 if ! command -v aios-cli &> /dev/null; then
   echo -e "${CYAN}Installing Hyperspace CLI...${RESET}"
-  curl https://download.hyper.space/api/install | bash
+  curl https://download.hyper.space/api/install | bas
+  export PATH="$HOME/.aios:$PATH"
   source ~/.bashrc
 fi
 
